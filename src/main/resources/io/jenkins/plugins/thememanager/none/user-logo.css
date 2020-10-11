@@ -1,0 +1,11 @@
+
+#header .logo {
+    background: url(<LOGO_DATA>);
+    background-repeat: no-repeat;
+    background-size: auto 40px, cover;
+    background-position: 0px 0px;
+}
+
+#jenkins-home-link {
+    display: None !important;
+}

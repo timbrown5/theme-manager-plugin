@@ -9,5 +9,26 @@
     <f:entry field="disableUserThemes">
       <f:checkbox title="${%Do not allow users to select a different theme}" />
     </f:entry>
+
+
+    <f:section title="${%Logo customization}">
+
+      <f:entry title="${%Logo Origin}" help="Where to get the main UI logo from.">
+        <select name="logoOrigin" >
+          <option value="default">Default logo.</option>
+          <option value="fromUrl">Use logo from URL.</option>
+          <option value="fromDataUri">Use Data URI.</option>
+        </select>
+      </f:entry>
+
+      <f:entry title="${%Logo URL}" help="A URL directly to the Logo to replace the default logo with.">
+        <f:textbox field="logoUrl" />
+      </f:entry>
+
+      <f:entry title="${%Data URI}" help="A CSS Data URI describing the logo.">
+        <f:expandableTextbox field="logoBase64String" />
+      </f:entry>
+    </f:section>      
+
   </f:section>
 </j:jelly>

@@ -24,6 +24,9 @@ public class ThemeManagerPageDecorator extends PageDecorator {
 
   private ThemeManagerFactory theme;
   private boolean disableUserThemes;
+  private String logoOrigin;
+  private String logoUrl;
+  private String logoDataUri;
 
   public ThemeManagerPageDecorator() {
     load();
@@ -53,10 +56,53 @@ public class ThemeManagerPageDecorator extends PageDecorator {
     return disableUserThemes;
   }
 
+  public String getLogoOrigin() {
+    if (logoOrigin == null) {
+      logoOrigin = "default";
+    }
+    return logoOrigin; 
+  }
+
+  public String getLogoUrl() {
+    return logoUrl;
+  }
+
+  public String getLogoDataUri() {
+    return logoDataUri;
+  }
+
+  public boolean useDefaultLogo() {
+    return this.getLogoOrigin() == "default";
+  }
+  
+  public boolean useLogoUrl() {
+    return this.getLogoOrigin() == "fromUrl";
+  }
+
+  public boolean useLogoDataUri() {
+    return this.getLogoOrigin() == "fromDataUri";
+  }
+
   @DataBoundSetter
   public void setDisableUserThemes(boolean disableUserThemes) {
     this.disableUserThemes = disableUserThemes;
   }
+
+  @DataBoundSetter
+  public void setLogoOrigin(String logoOrigin) {
+    this.logoOrigin = logoOrigin;
+  }
+
+  @DataBoundSetter
+  public void setLogoUrl(String logoUrl) {
+    this.logoUrl = logoUrl;
+  }
+
+  @DataBoundSetter
+  public void setLogoDataUri(String logoDataUri) {
+    this.logoDataUri = logoDataUri;
+  }
+
 
   /**
    * Finds the active theme. Checks User and then global theme.
